@@ -4,7 +4,29 @@
 
 Getting reference assemblies to use with a `Compilation` is challenging because they are only shipped with development tools. In order to use them in a library, the developer must do the heavy lifting of packaging them up as resources in their library and unpacking them at runtime.
 
-The [Basic.Reference.Assemblies](https://www.nuget.org/packages/Basic.Reference.Assemblies/) library takes care of this heavy lifting and provides reference assemblies for `net10.0`, `netstandard2.0` and `net472` target frameworks. These can be easily integrated into the existing Roslyn APIs.
+The [Basic.Reference.Assemblies](https://www.nuget.org/packages/Basic.Reference.Assemblies/) library takes care of this heavy lifting and provides reference assemblies for `net8.0`, `netstandard2.0` and `net472` target frameworks. These can be easily integrated into the existing Roslyn APIs.
+
+Additional dedicated packages are provided for other supported target frameworks:
+
+- [Basic.Reference.Assemblies.Net100](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net100/)
+- [Basic.Reference.Assemblies.Net90](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net90/)
+
+Developers who only need a single target framework and are extremely size conscious can grab the target framework specific package:
+
+- [Basic.Reference.Assemblies.Net80](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net80/)
+- [Basic.Reference.Assemblies.NetStandard20](https://www.nuget.org/packages/Basic.Reference.Assemblies.NetStandard20/)
+- [Basic.Reference.Assemblies.Net472](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net472/)
+
+Packages for older target frameworks are also available:
+
+- [Basic.Reference.Assemblies.Net70](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net70/)
+- [Basic.Reference.Assemblies.Net60](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net60/)
+- [Basic.Reference.Assemblies.Net60Windows](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net60Windows/)
+- [Basic.Reference.Assemblies.Net50](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net50/)
+- [Basic.Reference.Assemblies.NetCoreApp31](https://www.nuget.org/packages/Basic.Reference.Assemblies.NetCoreApp31/)
+- [Basic.Reference.Assemblies.NetStandard13](https://www.nuget.org/packages/Basic.Reference.Assemblies.NetStandard13/)
+- [Basic.Reference.Assemblies.Net461](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net461/)
+
 
 ## Usage Examples
 
@@ -51,23 +73,6 @@ compilation = compilation.WithReferenceAssemblies(ReferenceAssemblyKind.Net80);
 The expectation is that most developers will use [Basic.Reference.Assemblies](https://www.nuget.org/packages/Basic.Reference.Assemblies/). This package has reference assemblies for the latest supported target frameworks and provides APIs to easily switch between them in `Compilation` instances. 
 
 ## FAQ
-
-### What if I only need a single target framework?
-Developers who only need a single target framework and are extremely size conscious can grab the target framework specific package:
-
-- [Basic.Reference.Assemblies.Net80](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net80/)
-- [Basic.Reference.Assemblies.NetStandard20](https://www.nuget.org/packages/Basic.Reference.Assemblies.NetStandard20/)
-- [Basic.Reference.Assemblies.Net472](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net472/)
-
-Packages for older target frameworks are also available:
-
-- [Basic.Reference.Assemblies.Net70](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net70/)
-- [Basic.Reference.Assemblies.Net60](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net60/)
-- [Basic.Reference.Assemblies.Net60Windows](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net60Windows/)
-- [Basic.Reference.Assemblies.Net50](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net50/)
-- [Basic.Reference.Assemblies.NetCoreApp31](https://www.nuget.org/packages/Basic.Reference.Assemblies.NetCoreApp31/)
-- [Basic.Reference.Assemblies.NetStandard13](https://www.nuget.org/packages/Basic.Reference.Assemblies.NetStandard13/)
-- [Basic.Reference.Assemblies.Net461](https://www.nuget.org/packages/Basic.Reference.Assemblies.Net461/)
 
 ### What is wrong with using `typeof(Enumerable).Assembly`?
 Developers working on .NET Framework will often end up with the following pattern for creating `Compilation` instances:
